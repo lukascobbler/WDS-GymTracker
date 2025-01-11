@@ -1,7 +1,10 @@
+using GymTracker.API.Startup;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.RegisterModules();
 
 var app = builder.Build();
 

@@ -3,16 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymTracker.UserManagement.Infrastructure.Database;
 
-public class GymMembersContext : DbContext
+public class UsersContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<GymMember> GymMembers { get; set; }
     
-    public GymMembersContext(DbContextOptions<GymMembersContext> options) : base(options) { }
+    public UsersContext(DbContextOptions<UsersContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("gymMembers");
+        modelBuilder.HasDefaultSchema("users");
         
         ConfigureGymMember(modelBuilder);
     }

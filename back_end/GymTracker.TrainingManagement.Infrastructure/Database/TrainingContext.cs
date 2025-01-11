@@ -12,7 +12,7 @@ public class TrainingContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("trainingSchema");
+        modelBuilder.HasDefaultSchema("trainings");
         
         ConfigureTrainings(modelBuilder);
     }

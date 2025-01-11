@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\GymTracker.BuildingBlocks.Infrastructure\GymTracker.BuildingBlocks.Infrastructure.csproj" />
       <ProjectReference Include="..\GymTracker.UserManagement.Core\GymTracker.UserManagement.Core.csproj" />
     </ItemGroup>
 
