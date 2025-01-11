@@ -14,4 +14,8 @@
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GymTracker.UserManagement.Core\GymTracker.UserManagement.Core.csproj" />
+    </ItemGroup>
+
 </Project>
