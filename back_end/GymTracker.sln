@@ -4,6 +4,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{82DC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.API", "GymTracker.API\GymTracker.API.csproj", "{0DC40885-8F72-45E7-AC61-9B1A188B08EA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GymTracker.UserManagement", "GymTracker.UserManagement", "{8DAD4A75-6D60-4A8E-83C4-B577EA1F8059}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GymTracker.TrainingManagement", "GymTracker.TrainingManagement", "{DCB8244D-26E1-4171-BCF5-D7DFF2575157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.TrainingManagement.API", "GymTracker.TrainingManagement.API\GymTracker.TrainingManagement.API.csproj", "{72E720E5-2204-4790-A0D8-3BF04CF4CDE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.TrainingManagement.Core", "GymTracker.TrainingManagement.Core\GymTracker.TrainingManagement.Core.csproj", "{5FF63FA6-3D39-4DFA-96D0-757BF7495B80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.TrainingManagement.Infrastructure", "GymTracker.TrainingManagement.Infrastructure\GymTracker.TrainingManagement.Infrastructure.csproj", "{093BF0F5-5BBD-4372-95C8-33F253306AB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.UserManagement.Core", "GymTracker.UserManagement.Core\GymTracker.UserManagement.Core.csproj", "{E71DE35F-2E68-460A-B608-0EE46F151537}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.UserManagement.API", "GymTracker.UserManagement.API\GymTracker.UserManagement.API.csproj", "{2EAAF9C2-5D46-409D-9964-6FE3759F5E88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.UserManagement.Infrastructure", "GymTracker.UserManagement.Infrastructure\GymTracker.UserManagement.Infrastructure.csproj", "{9CB2E71F-F65B-40A1-9887-CF3CA23A6262}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{A78170E3-186B-47FD-995F-67260457670C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.BuildingBlocks.Core", "GymTracker.BuildingBlocks.Core\GymTracker.BuildingBlocks.Core.csproj", "{312A308F-950C-401A-BC13-75FD33562B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.BuildingBlocks.Infrastructure", "GymTracker.BuildingBlocks.Infrastructure\GymTracker.BuildingBlocks.Infrastructure.csproj", "{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,5 +36,49 @@ Global
 		{0DC40885-8F72-45E7-AC61-9B1A188B08EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DC40885-8F72-45E7-AC61-9B1A188B08EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DC40885-8F72-45E7-AC61-9B1A188B08EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72E720E5-2204-4790-A0D8-3BF04CF4CDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72E720E5-2204-4790-A0D8-3BF04CF4CDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72E720E5-2204-4790-A0D8-3BF04CF4CDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72E720E5-2204-4790-A0D8-3BF04CF4CDE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF63FA6-3D39-4DFA-96D0-757BF7495B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF63FA6-3D39-4DFA-96D0-757BF7495B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF63FA6-3D39-4DFA-96D0-757BF7495B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF63FA6-3D39-4DFA-96D0-757BF7495B80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{093BF0F5-5BBD-4372-95C8-33F253306AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093BF0F5-5BBD-4372-95C8-33F253306AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093BF0F5-5BBD-4372-95C8-33F253306AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093BF0F5-5BBD-4372-95C8-33F253306AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E71DE35F-2E68-460A-B608-0EE46F151537}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E71DE35F-2E68-460A-B608-0EE46F151537}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E71DE35F-2E68-460A-B608-0EE46F151537}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E71DE35F-2E68-460A-B608-0EE46F151537}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EAAF9C2-5D46-409D-9964-6FE3759F5E88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EAAF9C2-5D46-409D-9964-6FE3759F5E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EAAF9C2-5D46-409D-9964-6FE3759F5E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EAAF9C2-5D46-409D-9964-6FE3759F5E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB2E71F-F65B-40A1-9887-CF3CA23A6262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB2E71F-F65B-40A1-9887-CF3CA23A6262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB2E71F-F65B-40A1-9887-CF3CA23A6262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB2E71F-F65B-40A1-9887-CF3CA23A6262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{312A308F-950C-401A-BC13-75FD33562B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{312A308F-950C-401A-BC13-75FD33562B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{312A308F-950C-401A-BC13-75FD33562B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{312A308F-950C-401A-BC13-75FD33562B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8DAD4A75-6D60-4A8E-83C4-B577EA1F8059} = {82DCF8BC-18E9-478F-B79C-1ECFC38466C4}
+		{DCB8244D-26E1-4171-BCF5-D7DFF2575157} = {82DCF8BC-18E9-478F-B79C-1ECFC38466C4}
+		{72E720E5-2204-4790-A0D8-3BF04CF4CDE2} = {DCB8244D-26E1-4171-BCF5-D7DFF2575157}
+		{5FF63FA6-3D39-4DFA-96D0-757BF7495B80} = {DCB8244D-26E1-4171-BCF5-D7DFF2575157}
+		{093BF0F5-5BBD-4372-95C8-33F253306AB1} = {DCB8244D-26E1-4171-BCF5-D7DFF2575157}
+		{E71DE35F-2E68-460A-B608-0EE46F151537} = {8DAD4A75-6D60-4A8E-83C4-B577EA1F8059}
+		{2EAAF9C2-5D46-409D-9964-6FE3759F5E88} = {8DAD4A75-6D60-4A8E-83C4-B577EA1F8059}
+		{9CB2E71F-F65B-40A1-9887-CF3CA23A6262} = {8DAD4A75-6D60-4A8E-83C4-B577EA1F8059}
+		{312A308F-950C-401A-BC13-75FD33562B15} = {A78170E3-186B-47FD-995F-67260457670C}
+		{C086BBDA-68A7-47DF-A61F-93F6AD0CCEBF} = {A78170E3-186B-47FD-995F-67260457670C}
 	EndGlobalSection
 EndGlobal
