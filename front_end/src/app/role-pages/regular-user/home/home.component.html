@@ -1,1 +1,79 @@
-<p>home works!</p>
+<div class="background">
+  <div class="statistics-holder">
+    <div class="training-statistics">
+      <div class="data">
+        <div class="week">
+          <label class="week-label"><b>Week 1: </b></label>
+          <label>Total training time: {{ "TEMP" }} </label>
+          <label>Number of trainings: {{ "TEMP" }} </label>
+          <label>Average training difficulty: {{ "TEMP" }} </label>
+          <label>Average training tiredness: {{ "TEMP" }}</label>
+        </div>
+        <div class="week">
+          <label class="week-label"><b>Week 2: </b></label>
+          <label>Total training time: {{ "TEMP" }} </label>
+          <label>Number of trainings: {{ "TEMP" }} </label>
+          <label>Average training difficulty: {{ "TEMP" }} </label>
+          <label>Average training tiredness: {{ "TEMP" }}</label>
+        </div>
+        <div class="week">
+          <label class="week-label"><b>Week 3: </b></label>
+          <label>Total training time: {{ "TEMP" }} </label>
+          <label>Number of trainings: {{ "TEMP" }} </label>
+          <label>Average training difficulty: {{ "TEMP" }} </label>
+          <label>Average training tiredness: {{ "TEMP" }}</label>
+        </div>
+        <div class="week">
+          <label class="week-label"><b>Week 4: </b></label>
+          <label>Total training time: {{ "TEMP" }} </label>
+          <label>Number of trainings: {{ "TEMP" }} </label>
+          <label>Average training difficulty: {{ "TEMP" }} </label>
+          <label>Average training tiredness: {{ "TEMP" }}</label>
+        </div>
+      </div>
+      <div class="button-holder">
+
+        <button class="yellow-button new-training-button" (click)="createNewTraining()">Insert new training</button>
+      </div>
+    </div>
+    <mat-table [dataSource]="trainingsDataSource">
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef> Training Date </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          TRAINING NAME
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef> Training Type </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="type-description-cell">
+          TRAINING TYPE
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="difficulty">
+        <mat-header-cell *matHeaderCellDef> Difficulty </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="type-description-cell">
+          TRAINING DIFF
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="tiredness">
+        <mat-header-cell *matHeaderCellDef> Tiredness </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="type-description-cell">
+          TRAINING TYPE
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="additional notes">
+        <mat-header-cell *matHeaderCellDef> Additional notes </mat-header-cell>
+        <mat-cell *matCellDef="let element" class="type-description-cell">
+          ADDITIONAL NOTES
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

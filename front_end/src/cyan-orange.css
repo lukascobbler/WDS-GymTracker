@@ -525,9 +525,9 @@ html {
   --mat-select-enabled-trigger-text-color: #e0e3e2;
   --mat-select-disabled-trigger-text-color: rgba(224, 227, 226, 0.38);
   --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.6);
-  --mat-select-enabled-arrow-color: #dae5e4;
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.6);
   --mat-select-disabled-arrow-color: rgba(224, 227, 226, 0.38);
-  --mat-select-focused-arrow-color: #00dddd;
+  --mat-select-focused-arrow-color: rgba(0, 0, 0, 0.6);
   --mat-select-invalid-arrow-color: #ffb4ab;
   --mat-select-trigger-text-font: Roboto, sans-serif;
   --mat-select-trigger-text-line-height: 1.5rem;

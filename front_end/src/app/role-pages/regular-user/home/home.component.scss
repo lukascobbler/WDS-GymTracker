@@ -1,0 +1,90 @@
+.background {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../../../../../public/assets/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.statistics-holder {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid #aaaaaa;
+  min-width: 95%;
+  min-height: 90%;
+  overflow: hidden;
+  max-height: 90%;
+}
+
+mat-table {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  overflow-y: scroll;
+}
+
+mat-header-row {
+  color: black;
+}
+
+mat-row {
+  color: black;
+}
+
+.training-statistics {
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.week-label {
+  font-size: larger;
+}
+
+.data {
+  display: flex;
+  gap: 30px;
+}
+
+.button-holder {
+  display: flex;
+}
+
+.new-training-button {
+  width: 250px;
+  height: 75px;
+  font-size: x-large;
+}
+
+.date {
+  width: 250px;
+  height: 97px;
+  margin-right: 25px;
+}

@@ -1,1 +1,44 @@
-<p>insert-training works!</p>
+<div class="form">
+  <mat-form-field subscriptSizing="dynamic" class="input-field">
+    <input placeholder="Training date..." matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input matInput (input)="validateNumber($event)" type="number" placeholder="Duration (minutes)...">
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input matInput (input)="validateNumber($event)" type="number" placeholder="Calories consumed...">
+  </mat-form-field>
+
+  <div class="input-field slider">
+    <mat-label>Training difficulty (5)</mat-label>
+    <mat-slider min="1" max="10" step="1">
+      <input matSliderThumb value="5">
+    </mat-slider>
+  </div>
+
+  <div class="input-field slider">
+    <mat-label>Tiredness (5)</mat-label>
+    <mat-slider min="1" max="10" step="1">
+      <input matSliderThumb value="5">
+    </mat-slider>
+  </div>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <mat-select placeholder="Training type...">
+      <mat-option [value]="Gender.Female">Female</mat-option>
+      <mat-option [value]="Gender.Male">Male</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <textarea rows="5" matInput type="text" placeholder="Additional notes..."></textarea>
+  </mat-form-field>
+
+  <button class="yellow-button insert-training-button">Insert training</button>
+</div>
+
+
