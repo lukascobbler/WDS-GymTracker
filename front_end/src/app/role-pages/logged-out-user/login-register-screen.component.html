@@ -1,0 +1,16 @@
+<div class="background">
+  <div class="form-holder">
+    <div class="form-positioner" *ngIf="isLogin">
+      <app-login-form class="form"></app-login-form>
+      <div class="switch-type">
+        <label class="information-label" (click)="isLogin = !isLogin">New account?</label>
+      </div>
+    </div>
+    <div class="form-positioner" *ngIf="!isLogin">
+      <app-register-form class="form"></app-register-form>
+      <div class="switch-type">
+        <label class="information-label" (click)="isLogin = !isLogin">Already a member?</label>
+      </div>
+    </div>
+  </div>
+</div>

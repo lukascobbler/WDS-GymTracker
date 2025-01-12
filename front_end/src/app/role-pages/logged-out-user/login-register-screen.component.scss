@@ -1,0 +1,64 @@
+.background {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../../../../public/assets/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.form-holder {
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border: 3px solid #aaaaaa;
+  min-width: 18%;
+  min-height: 20%;
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 45px;
+}
+
+.form-positioner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.switch-type {
+  display: flex;
+  flex-direction: column;
+}
+
+.information-label {
+  margin-bottom: 5px;
+  text-align: center;
+  color: dodgerblue;
+}
+
+.information-label:hover {
+  text-decoration: underline;
+}

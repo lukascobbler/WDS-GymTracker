@@ -32,7 +32,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/cyan-orange.css",
+              "src/styles.scss",
+              "src/colors.scss"
             ],
             "scripts": []
           },
@@ -91,7 +93,9 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/cyan-orange.css",
+              "src/styles.scss",
+              "src/colors.scss"
             ],
             "scripts": []
           }
