@@ -83,6 +83,7 @@ export class HomeComponent implements OnInit {
   weeklyStatistics: WeeklyTrainingStatisticsDTO[];
   trainingsDataSource = new MatTableDataSource<TrainingDTO>();
   loadingTrainings: boolean = true;
+  loggedInUserId: number;
 
   readonly formControlDate = new FormControl(moment());
   selectedDate: Date | null = null;
@@ -111,7 +112,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.trainingService.getAllTrainingsForUser().subscribe({
+    this.loggedInUserId = Number(localStorage.getItem('userId'));
+    this.trainingService.getAllTrainingsForUser(this.loggedInUserId).subscribe({
       next: value => {
         this.trainings = value;
         this.trainingsDataSource.data = value;
@@ -149,7 +151,7 @@ export class HomeComponent implements OnInit {
       next: newTraining => {
         if (newTraining !== null && newTraining !== undefined) {
           this.loadingTrainings = true;
-          this.trainingService.documentTrainingForUser(newTraining).subscribe({
+          this.trainingService.documentTrainingForUser(newTraining, this.loggedInUserId).subscribe({
             next: documentedTraining => {
               const index = this.binarySearch(this.trainings, documentedTraining);
               this.trainings.splice(index, 0, documentedTraining);
@@ -171,7 +173,7 @@ export class HomeComponent implements OnInit {
 
   getWeeklyStatistics() {
     this.loadingTrainings = true;
-    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!).subscribe({
+    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!, this.loggedInUserId).subscribe({
       next: value => {
         this.weeklyStatistics = value;
         this.trainingsDataSource.data = this.trainings.filter(t =>
@@ -186,6 +188,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
+    localStorage.removeItem('userId');
     this.router.navigate(['']);
   }
 
