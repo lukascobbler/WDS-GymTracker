@@ -13,6 +13,12 @@ input {
   color: #000000 !important;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .input-field {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -43,6 +49,7 @@ input, textarea {
   }
 
   .mdc-text-field {
+    background-color: #ffffff !important;
     border: 1px solid #aaaaaa;
     border-radius: 4px !important;
   }
@@ -57,3 +64,8 @@ textarea {
   height: 40px;
   font-size: x-large;
 }
+
+::ng-deep .mat-datepicker-content {
+  border: 1px solid black;
+}
+

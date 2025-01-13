@@ -75,6 +75,8 @@ mat-row {
 
 .button-holder {
   display: flex;
+  gap: 25px;
+  height: 50%;
 }
 
 .new-training-button {
@@ -87,4 +89,57 @@ mat-row {
   width: 250px;
   height: 97px;
   margin-right: 25px;
+}
+
+.additional-notes {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+.additional-notes.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.additional-notes-button {
+  all: unset;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.date-picker {
+  min-height: 100%;
+}
+
+::ng-deep .mat-datepicker-content {
+  border: 1px solid black;
+}
+
+::ng-deep {
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mdc-text-field {
+    background-color: #ffffff !important;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px !important;
+  }
+}
+
+input {
+  color: black !important;
+}
+
+.reset-button {
+  margin: 0;
+  cursor: pointer;
+}
+
+.reset-button:hover {
+
 }

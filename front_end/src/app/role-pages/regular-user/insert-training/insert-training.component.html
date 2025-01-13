@@ -1,29 +1,29 @@
-<div class="form">
-  <mat-form-field subscriptSizing="dynamic" class="input-field">
-    <input placeholder="Training date..." matInput [matDatepicker]="picker">
+<form class="form" (ngSubmit)="closeDialog()" [formGroup]="trainingFormGroup">
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input readonly [max]="today" formControlName="trainingDate" placeholder="Training date..." matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
-    <input matInput (input)="validateNumber($event)" type="number" placeholder="Duration (minutes)...">
+    <input formControlName="duration" matInput (input)="validateNumber($event)" type="number" placeholder="Duration (minutes)...">
   </mat-form-field>
 
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
-    <input matInput (input)="validateNumber($event)" type="number" placeholder="Calories consumed...">
+    <input formControlName="caloriesBurned" matInput (input)="validateNumber($event)" type="number" placeholder="Calories burned (kcal)...">
   </mat-form-field>
 
   <div class="input-field slider">
-    <mat-label>Training difficulty (5)</mat-label>
+    <mat-label>Training difficulty ({{ difficultyPicker.value }})</mat-label>
     <mat-slider min="1" max="10" step="1">
-      <input matSliderThumb value="5">
+      <input #difficultyPicker formControlName="trainingDifficulty" matSliderThumb>
     </mat-slider>
   </div>
 
   <div class="input-field slider">
-    <mat-label>Tiredness (5)</mat-label>
+    <mat-label>Tiredness ({{ tirednessPicker.value }})</mat-label>
     <mat-slider min="1" max="10" step="1">
-      <input matSliderThumb value="5">
+      <input #tirednessPicker formControlName="tiredness" matSliderThumb>
     </mat-slider>
   </div>
 
@@ -35,10 +35,10 @@
   </mat-form-field>
 
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
-    <textarea rows="5" matInput type="text" placeholder="Additional notes..."></textarea>
+    <textarea formControlName="notes" rows="5" matInput type="text" placeholder="Additional notes..."></textarea>
   </mat-form-field>
 
-  <button class="yellow-button insert-training-button">Insert training</button>
-</div>
+  <button [disabled]="!trainingFormGroup.valid" type="submit" class="yellow-button insert-training-button">Insert training</button>
+</form>
 
 
