@@ -1,17 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
-import {TrainingDTO} from '../../../models/TrainingDTO';
+import {TrainingDTO} from '../../../models/trainings/TrainingDTO';
 import {MatFormField, MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatInput, MatInputModule} from '@angular/material/input';
 import {MatOption, provideNativeDateAdapter} from '@angular/material/core';
 import {MatSelect} from '@angular/material/select';
 import {MatSlider, MatSliderThumb} from '@angular/material/slider';
-import {Gender} from '../../../models/Gender';
+import {Gender} from '../../../models/users/Gender';
 import {
   MatDatepickerModule,
 } from '@angular/material/datepicker';
 import {Form, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {today} from '@igniteui/material-icons-extended';
+import {CreateTrainingDTO} from '../../../models/trainings/CreateTrainingDTO';
 
 @Component({
   selector: 'app-insert-training',
@@ -37,7 +38,7 @@ export class InsertTrainingComponent implements OnInit {
   trainingFormGroup: FormGroup;
   today: Date = new Date();
 
-  constructor(public dialogRef: MatDialogRef<InsertTrainingComponent, TrainingDTO | null>,
+  constructor(public dialogRef: MatDialogRef<InsertTrainingComponent, CreateTrainingDTO | null>,
               private formBuilder: FormBuilder) {
   }
 
@@ -61,7 +62,7 @@ export class InsertTrainingComponent implements OnInit {
       trainingDate: this.trainingFormGroup.get('trainingDate')?.value,
       trainingDifficulty: this.trainingFormGroup.get('trainingDifficulty')?.value,
     })
-    // this.dialogRef.close(this.newTraining);
+    // this.dialogRef.close(this.newTraining); //todo
   }
 
   onNoClick() {

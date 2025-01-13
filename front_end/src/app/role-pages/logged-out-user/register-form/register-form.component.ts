@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from '@angular/material/select';
-import {Gender} from '../../../models/Gender';
+import {Gender} from '../../../models/users/Gender';
 
 @Component({
   selector: 'app-register-form',

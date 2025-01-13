@@ -1,28 +1,38 @@
 <div class="background">
-  <div class="statistics-holder">
+  <div *ngIf="loadingTrainings" class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!loadingTrainings" class="statistics-holder">
+    <div>
+      <mat-icon class="logout-icon" (click)="logout()">logout</mat-icon>
+    </div>
     <div class="training-statistics">
-      <div class="data">
-        <div class="week" *ngFor="let i of [1, 2, 3, 4]">
-          <label class="week-label"><b>Week {{ i }}: </b></label>
-          <label>Total training time: {{ "TEMP" }} </label>
-          <label>Number of trainings: {{ "TEMP" }} </label>
-          <label>Average training difficulty: {{ "TEMP" }} </label>
-          <label>Average training tiredness: {{ "TEMP" }}</label>
+      <div class="">
+        <p *ngIf="selectedDate !== null" class="selected-month-title">Trainings for the selected month: {{ selectedDate | date: "MMMM YYYY." }}</p>
+        <div *ngIf="selectedDate !== null" class="data">
+          <div class="week" *ngFor="let week of weeklyStatistics; let i = index">
+            <label class="week-label"><b>Week {{ i }}: </b></label>
+            <label>Total training time: {{ week.totalTrainingTime }} </label>
+            <label>Number of trainings: {{ week.numberOfTrainings }} </label>
+            <label>Average training difficulty: {{ week.averageTrainingDifficulty }} </label>
+            <label>Average training tiredness: {{ week.averageTrainingTiredness }}</label>
+          </div>
         </div>
+        <p *ngIf="selectedDate === null" class="title">All documented trainings</p>
       </div>
       <div class="button-holder">
         <mat-form-field appearance="fill" subscriptSizing="dynamic" class="date-picker">
-          <mat-label>Month and Year for statistics</mat-label>
-          <input readonly matInput [max]="today" [matDatepicker]="dp" [formControl]="date">
+          <mat-label>Month and Year</mat-label>
+          <input readonly matInput [max]="today" [matDatepicker]="dp" [formControl]="formControlDate">
           <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
-          <mat-icon class="reset-button" matSuffix>restart_alt</mat-icon>
+          <mat-icon matIconSuffix (click)="resetMonthAndYear()" class="reset-button">restart_alt</mat-icon>
           <mat-datepicker #dp
                           startView="multi-year"
                           (monthSelected)="setMonthAndYear($event, dp)"
                           panelClass="example-month-picker">
           </mat-datepicker>
         </mat-form-field>
-        <button class="yellow-button new-training-button" (click)="createNewTraining()">Insert new training</button>
+        <button class="yellow-button new-training-button" (click)="createNewTraining()">Document new training</button>
       </div>
     </div>
     <mat-table [dataSource]="trainingsDataSource">
@@ -36,7 +46,7 @@
       <ng-container matColumnDef="type">
         <mat-header-cell *matHeaderCellDef> Training Type </mat-header-cell>
         <mat-cell *matCellDef="let training" class="type-description-cell">
-          TRAINING TYPE
+          {{ training.trainingTypeName }}
         </mat-cell>
       </ng-container>
 

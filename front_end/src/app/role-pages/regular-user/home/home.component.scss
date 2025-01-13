@@ -25,6 +25,13 @@
   z-index: -1;
 }
 
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
 .statistics-holder {
   display: flex;
   flex-direction: column;
@@ -41,7 +48,7 @@
 mat-table {
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
-  overflow-y: scroll;
+  overflow-y: auto; // todo
 }
 
 mat-header-row {
@@ -53,7 +60,7 @@ mat-row {
 }
 
 .training-statistics {
-  padding: 25px;
+  padding: 10px 25px 25px;
   display: flex;
   justify-content: space-between;
 }
@@ -70,19 +77,19 @@ mat-row {
 
 .data {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .button-holder {
   display: flex;
-  gap: 25px;
+  gap: 15px;
   height: 50%;
 }
 
 .new-training-button {
-  width: 250px;
+  width: 200px;
   height: 75px;
-  font-size: x-large;
+  font-size: large;
 }
 
 .date {
@@ -113,6 +120,8 @@ mat-row {
 
 .date-picker {
   min-height: 100%;
+  width: 300px;
+  padding-left: 0 !important;
 }
 
 ::ng-deep .mat-datepicker-content {
@@ -140,6 +149,20 @@ input {
   cursor: pointer;
 }
 
-.reset-button:hover {
+.title {
+  font-size: xxx-large;
+  margin: 0;
+  padding: 0;
+}
 
+.selected-month-title {
+  text-align: center;
+  font-size: x-large;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.logout-icon {
+  cursor: pointer;
+  margin: 15px 0 0 15px;
 }

@@ -437,9 +437,9 @@ html {
   --mdc-plain-tooltip-supporting-text-weight: 400;
   --mdc-plain-tooltip-supporting-text-tracking: 0.025rem;
   --mdc-plain-tooltip-container-shape: 4px;
-  --mdc-filled-text-field-caret-color: #00dddd;
-  --mdc-filled-text-field-focus-active-indicator-color: #00dddd;
-  --mdc-filled-text-field-focus-label-text-color: #00dddd;
+  --mdc-filled-text-field-caret-color: #323232;
+  --mdc-filled-text-field-focus-active-indicator-color: #323232;
+  --mdc-filled-text-field-focus-label-text-color: #323232;
   --mdc-filled-text-field-container-color: #FFFFFF;
   --mdc-filled-text-field-disabled-container-color: rgba(224, 227, 226, 0.04);
   --mdc-filled-text-field-label-text-color: rgba(0, 0, 0, 0.6);
