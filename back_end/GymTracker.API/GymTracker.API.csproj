@@ -12,7 +12,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\GymTracker.TrainingManagement.API\GymTracker.TrainingManagement.API.csproj" />
       <ProjectReference Include="..\GymTracker.TrainingManagement.Infrastructure\GymTracker.TrainingManagement.Infrastructure.csproj" />
+      <ProjectReference Include="..\GymTracker.UserManagement.API\GymTracker.UserManagement.API.csproj" />
       <ProjectReference Include="..\GymTracker.UserManagement.Infrastructure\GymTracker.UserManagement.Infrastructure.csproj" />
     </ItemGroup>
 
