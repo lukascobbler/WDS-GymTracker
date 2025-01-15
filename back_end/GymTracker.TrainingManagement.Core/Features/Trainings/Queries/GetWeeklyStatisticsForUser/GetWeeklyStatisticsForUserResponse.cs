@@ -1,4 +1,7 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace GymTracker.TrainingManagement.Core.Features.Trainings.Queries.GetWeeklyStatisticsForUser;
 
+[NotMapped]
 public record GetWeeklyStatisticsForUserResponse(int TotalTrainingTime, int NumberOfTrainings, 
-    int AverageTrainingDifficulty, int AverageTrainingTiredness);
+    double AverageTrainingDifficulty, double AverageTrainingTiredness);
