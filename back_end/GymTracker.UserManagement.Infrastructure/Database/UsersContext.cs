@@ -19,6 +19,8 @@ public class UsersContext : DbContext
 
     private static void ConfigureGymMember(ModelBuilder modelBuilder)
     {
-        
+        modelBuilder.Entity<GymMember>()
+            .HasOne<User>()
+            .WithOne();
     }
 }

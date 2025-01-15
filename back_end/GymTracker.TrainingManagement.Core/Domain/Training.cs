@@ -5,7 +5,7 @@ namespace GymTracker.TrainingManagement.Core.Domain;
 public class Training : Entity
 {
     public Training() { }
-    public Training(int duration, int caloriesBurned, int trainingDifficulty, int tiredness, string? notes, DateOnly trainingDate, TrainingType trainingType, int userId)
+    public Training(int duration, int caloriesBurned, int trainingDifficulty, int tiredness, string? notes, DateOnly trainingDate, TrainingType trainingType, int gymMemberId)
     {
         Duration = duration;
         CaloriesBurned = caloriesBurned;
@@ -14,7 +14,7 @@ public class Training : Entity
         Notes = notes;
         TrainingDate = trainingDate;
         TrainingType = trainingType;
-        UserId = userId;
+        GymMemberId = gymMemberId;
     }
 
     public int Duration { get; set; }
@@ -24,5 +24,5 @@ public class Training : Entity
     public string? Notes { get; set; }
     public DateOnly TrainingDate { get; set; }
     public required TrainingType TrainingType { get; set; }
-    public int UserId { get; set; }
+    public int GymMemberId { get; set; }
 }

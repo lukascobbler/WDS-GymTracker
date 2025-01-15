@@ -24,7 +24,7 @@ public class InsertTrainingHandler(ITrainingRepository trainingRepository,
             request.Notes,
             request.TrainingDate,
             matchingTrainingType,
-            request.UserId
+            request.GymMemberId
         ) {
             TrainingType = matchingTrainingType
         };

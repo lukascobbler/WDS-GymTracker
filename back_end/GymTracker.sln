@@ -5,6 +5,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymTracker.API", "GymTracker.API\GymTracker.API.csproj", "{0DC40885-8F72-45E7-AC61-9B1A188B08EA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GymTracker.UserManagement", "GymTracker.UserManagement", "{8DAD4A75-6D60-4A8E-83C4-B577EA1F8059}"
+	ProjectSection(SolutionItems) = preProject
+		DependencyInjection.cs = DependencyInjection.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GymTracker.TrainingManagement", "GymTracker.TrainingManagement", "{DCB8244D-26E1-4171-BCF5-D7DFF2575157}"
 EndProject

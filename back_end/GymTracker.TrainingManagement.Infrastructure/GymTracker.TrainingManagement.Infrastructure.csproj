@@ -17,6 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\GymTracker.BuildingBlocks.Infrastructure\GymTracker.BuildingBlocks.Infrastructure.csproj" />
       <ProjectReference Include="..\GymTracker.TrainingManagement.Core\GymTracker.TrainingManagement.Core.csproj" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
 </Project>

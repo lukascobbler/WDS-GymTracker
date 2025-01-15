@@ -9,7 +9,7 @@ public class TrainingRepository(TrainingContext context) : ITrainingRepository
     public Task<List<Training>> GetAllForUserAsync(int userId)
     {
         return context.Trainings
-            .Where(t => t.UserId == userId)
+            .Where(t => t.GymMemberId == userId)
             .Include(t => t.TrainingType)
             .ToListAsync();
     }
