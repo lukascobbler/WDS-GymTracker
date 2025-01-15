@@ -1,4 +1,4 @@
 export interface TrainingTypeDTO {
-  id: number,
-  name: string,
+  trainingTypeId: number,
+  trainingTypeName: string,
 }
