@@ -12,8 +12,9 @@ public class DbConnectionStringBuilder
         var user = "postgres";
         var password = "postgres";
         var pooling = "true";
+        var includeErrorDetail = true;
 
         return
-            $"Server={server};Port={port};Database={database};SearchPath={schema};Username={user};Password={password};Pooling={pooling};";
+            $"Server={server};Port={port};Database={database};SearchPath={schema};Username={user};Password={password};Pooling={pooling};Include Error Detail={includeErrorDetail}";
     }
 }

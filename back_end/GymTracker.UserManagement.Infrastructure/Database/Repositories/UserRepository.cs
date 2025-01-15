@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GymTracker.UserManagement.Infrastructure.Database.Repositories;
 
-public class UserRepository(UsersContext usersContext): IUserRepository
+public class UserRepository(UsersContext context): IUserRepository
 {
     public async Task<User?> GetByCredentials(string email, string password)
     {
-        var foundUserWithEmail = await usersContext
+        var foundUserWithEmail = await context
             .Users
             .Where(u => u.Email == email)
             .FirstOrDefaultAsync();
@@ -24,15 +24,15 @@ public class UserRepository(UsersContext usersContext): IUserRepository
 
     public async Task<User> Save(User user)
     {
-        await usersContext.AddAsync(user);
-        await usersContext.SaveChangesAsync();
+        await context.Users.AddAsync(user);
+        await context.SaveChangesAsync();
         
         return user;
     }
 
     public Task<bool> EmailExists(string email)
     {
-        return usersContext
+        return context
             .Users
             .AnyAsync(u => u.Email == email);
     }

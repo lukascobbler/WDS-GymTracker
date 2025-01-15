@@ -1,6 +1,7 @@
-using GymTracker.UserManagement.Core.Features.User.Register;
+using GymTracker.UserManagement.Core.Features.User.Commands.Register;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 namespace GymTracker.UserManagement.API.Endpoints;
 
@@ -10,7 +11,9 @@ public static class RegisterEndpoint
     {
         app.MapPost("api/v1/users/registration", async (RegisterCommand registerCommand, IMediator mediator) =>
         {
-            return await mediator.Send(registerCommand);
+            var response = await mediator.Send(registerCommand);
+
+            return response == null ? Results.BadRequest() : Results.Ok(response);
         });
     }
 }

@@ -3,21 +3,21 @@ using GymTracker.UserManagement.Core.Domain;
 using GymTracker.UserManagement.Core.Domain.RepositoryInterfaces;
 using MediatR;
 
-namespace GymTracker.UserManagement.Core.Features.User.Register;
+namespace GymTracker.UserManagement.Core.Features.User.Commands.Register;
 
 public class RegisterHandler(IGymMemberRepository gymMemberRepository, 
-    IUserRepository userRepository): IRequestHandler<RegisterCommand, RegisterResponse>
+    IUserRepository userRepository): IRequestHandler<RegisterCommand, RegisterResponse?>
 {
-    public async Task<RegisterResponse> Handle(RegisterCommand request, CancellationToken cancellationToken)
+    public async Task<RegisterResponse?> Handle(RegisterCommand request, CancellationToken cancellationToken)
     {
         if (await userRepository.EmailExists(request.Email))
         {
-            // todo error
+            return null;
         }
 
         if (request.Password != request.RepeatPassword)
         {
-            // todo error
+            return null;
         }
         
         var salt = PasswordUtilities.GenerateSalt();

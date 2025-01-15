@@ -20,6 +20,12 @@ public class TrainingContext : DbContext
     private static void ConfigureTrainings(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Training>()
+            .HasKey(t => t.Id);
+        
+        modelBuilder.Entity<TrainingType>()
+            .HasKey(tt => tt.Id);
+        
+        modelBuilder.Entity<Training>()
             .HasOne<TrainingType>(t => t.TrainingType)
             .WithMany()
             .HasForeignKey("TrainingTypeId");

@@ -20,6 +20,12 @@ public class UsersContext : DbContext
     private static void ConfigureGymMember(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<GymMember>()
+            .HasKey(g => g.Id);
+        
+        modelBuilder.Entity<User>()
+            .HasKey(u => u.Id);
+        
+        modelBuilder.Entity<GymMember>()
             .HasOne<User>(g => g.User);
     }
 }

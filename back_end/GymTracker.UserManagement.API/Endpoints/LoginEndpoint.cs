@@ -1,4 +1,4 @@
-using GymTracker.UserManagement.Core.Features.User.Login;
+using GymTracker.UserManagement.Core.Features.User.Queries.Login;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

@@ -1,8 +1,7 @@
-using GymTracker.UserManagement.Core.Domain;
 using GymTracker.UserManagement.Core.Domain.RepositoryInterfaces;
 using MediatR;
 
-namespace GymTracker.UserManagement.Core.Features.User.Login;
+namespace GymTracker.UserManagement.Core.Features.User.Queries.Login;
 
 public class LoginHandler(IUserRepository userRepository,
     IGymMemberRepository gymMemberRepository): IRequestHandler<LoginQuery, LoginResponse?>
