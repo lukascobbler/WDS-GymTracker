@@ -3,7 +3,7 @@ using GymTracker.TrainingManagement.Core.Domain;
 namespace GymTracker.TrainingManagement.Core.Features.Trainings.Queries.GetAllForUser;
 
 public record GetAllForUserResponse(int Duration, int CaloriesBurned, int TrainingDifficulty, int Tiredness,
-                          string TrainingTypeName, string? Notes, DateOnly TrainingDate);
+                          string TrainingTypeName, string? Notes, int Year, int Month, int Day);
 
 public static class TrainingDtoExtensions
 {
@@ -11,6 +11,6 @@ public static class TrainingDtoExtensions
     {
         return new GetAllForUserResponse(training.Duration, training.CaloriesBurned, training.TrainingDifficulty, 
                                training.Tiredness, training.TrainingType.Name, training.Notes, 
-                               training.TrainingDate);
+                               training.TrainingDate.Year, training.TrainingDate.Month, training.TrainingDate.Day);
     }
 }
