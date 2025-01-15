@@ -4,4 +4,4 @@ namespace GymTracker.TrainingManagement.Core.Features.Trainings.Commands.InsertT
 
 public record InsertTrainingCommand(int Duration, int CaloriesBurned, int TrainingDifficulty,
                                       int Tiredness, string? Notes, int TrainingTypeId,
-                                      DateOnly TrainingDate, int GymMemberId): IRequest<InsertTrainingResponse>;
+                                      int Year, int Month, int Day, int GymMemberId): IRequest<InsertTrainingResponse?>;

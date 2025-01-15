@@ -8,6 +8,16 @@ public class TrainingTypeRepository(TrainingContext context): ITrainingTypeRepos
 {
     public Task<TrainingType?> GetAsync(int id)
     {
-        return context.TrainingTypes.Where(tt => tt.Id == id).FirstOrDefaultAsync();
+        return context
+            .TrainingTypes
+            .Where(tt => tt.Id == id)
+            .FirstOrDefaultAsync();
+    }
+
+    public Task<List<TrainingType>> GetAllAsync()
+    {
+        return context
+            .TrainingTypes
+            .ToListAsync();
     }
 }

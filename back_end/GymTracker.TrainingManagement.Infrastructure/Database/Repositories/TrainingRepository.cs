@@ -11,6 +11,7 @@ public class TrainingRepository(TrainingContext context) : ITrainingRepository
         return context.Trainings
             .Where(t => t.GymMemberId == userId)
             .Include(t => t.TrainingType)
+            .OrderByDescending(t => t.TrainingDate)
             .ToListAsync();
     }
 

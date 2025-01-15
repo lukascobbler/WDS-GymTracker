@@ -11,10 +11,9 @@ public class DbConnectionStringBuilder
         var database = "gymTracker";
         var user = "postgres";
         var password = "postgres";
-        var integratedSecurity = "false";
         var pooling = "true";
 
         return
-            $"Server={server};Port={port};Database={database};SearchPath={schema};User ID={user};Password={password};Integrated Security={integratedSecurity};Pooling={pooling};";
+            $"Server={server};Port={port};Database={database};SearchPath={schema};Username={user};Password={password};Pooling={pooling};";
     }
 }

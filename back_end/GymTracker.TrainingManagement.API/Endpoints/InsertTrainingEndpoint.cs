@@ -1,6 +1,7 @@
 using GymTracker.TrainingManagement.Core.Features.Trainings.Commands.InsertTraining;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 
 namespace GymTracker.TrainingManagement.API.Endpoints;
 
@@ -10,9 +11,9 @@ public static class InsertTrainingEndpoint
     {
         app.MapPost("api/v1/trainings", async (InsertTrainingCommand insertTrainingCommand, IMediator mediator) =>
         {
-            await mediator.Send(insertTrainingCommand);
+            var newTraining = await mediator.Send(insertTrainingCommand);
+
+            return newTraining == null ? Results.BadRequest() : Results.Created("/api/v1/trainings", newTraining);
         });
-        
-        // todo
     }
 }

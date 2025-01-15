@@ -10,5 +10,6 @@ public static class TrainingApiStartup
         app.MapInsertTrainingEndpoint();
         app.MapGetAllTrainingsForUserEndpoint();
         app.MapGetWeeklyStatisticsForUserEndpoint();
+        app.MapAllTrainingTypesEndpoint();
     }
 }

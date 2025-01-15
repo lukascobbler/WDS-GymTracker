@@ -22,7 +22,12 @@ public class RegisterHandler(IGymMemberRepository gymMemberRepository,
         
         var salt = PasswordUtilities.GenerateSalt();
         var hashedPassword = PasswordUtilities.HashPassword(request.Password, salt);
-        var user = new Domain.User(request.Email, hashedPassword, Convert.ToBase64String(salt), UserRole.RegularUser);
+        var user = new Domain.User(request.Email, hashedPassword, Convert.ToBase64String(salt), UserRole.RegularUser)
+        {
+            Email = request.Email,
+            Password = hashedPassword,
+            Salt = Convert.ToBase64String(salt),
+        };
         // the role is fixed for now because there is no feature request for it
         await userRepository.Save(user);
 

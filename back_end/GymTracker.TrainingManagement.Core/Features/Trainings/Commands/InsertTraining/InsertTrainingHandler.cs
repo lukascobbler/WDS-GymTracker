@@ -6,23 +6,23 @@ namespace GymTracker.TrainingManagement.Core.Features.Trainings.Commands.InsertT
 
 public class InsertTrainingHandler(ITrainingRepository trainingRepository, 
     ITrainingTypeRepository trainingTypeRepository): 
-    IRequestHandler<InsertTrainingCommand, InsertTrainingResponse>
+    IRequestHandler<InsertTrainingCommand, InsertTrainingResponse?>
 {
-    public async Task<InsertTrainingResponse> Handle(InsertTrainingCommand request, CancellationToken cancellationToken)
+    public async Task<InsertTrainingResponse?> Handle(InsertTrainingCommand request, CancellationToken cancellationToken)
     {
         var matchingTrainingType = await trainingTypeRepository.GetAsync(request.TrainingTypeId);
         if (matchingTrainingType == null)
         {
-            throw new NotImplementedException();
+            return null;
         }
         
-        Training newTraining = new Training(
+        var newTraining = new Training(
             request.Duration,
             request.CaloriesBurned,
             request.TrainingDifficulty,
             request.Tiredness,
             request.Notes,
-            request.TrainingDate,
+            new DateOnly(request.Year, request.Month, request.Day),
             matchingTrainingType,
             request.GymMemberId
         ) {

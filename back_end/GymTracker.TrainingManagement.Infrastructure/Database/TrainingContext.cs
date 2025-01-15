@@ -20,7 +20,8 @@ public class TrainingContext : DbContext
     private static void ConfigureTrainings(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Training>()
-            .HasOne<TrainingType>()
-            .WithMany();
+            .HasOne<TrainingType>(t => t.TrainingType)
+            .WithMany()
+            .HasForeignKey("TrainingTypeId");
     }
 }

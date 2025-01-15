@@ -8,7 +8,7 @@ public static class RegisterEndpoint
 {
     public static void MapRegister(this WebApplication app)
     {
-        app.MapGet("api/v1/users/register", async (IMediator mediator, RegisterCommand registerCommand) =>
+        app.MapPost("api/v1/users/registration", async (RegisterCommand registerCommand, IMediator mediator) =>
         {
             return await mediator.Send(registerCommand);
         });

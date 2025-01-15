@@ -16,7 +16,7 @@ public class UserRepository(UsersContext usersContext): IUserRepository
 
         if (foundUserWithEmail == null || IsPasswordIncorrect(foundUserWithEmail, password))
         {
-            // todo error
+            return null;
         }
         
         return foundUserWithEmail;
