@@ -18,7 +18,7 @@ import {
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {InsertTrainingComponent} from '../insert-training/insert-training.component';
 import {TrainingDTO} from '../../../models/trainings/TrainingDTO';
-import {DatePipe, NgClass, NgForOf, NgIf} from '@angular/common';
+import {DatePipe, DecimalPipe, NgClass, NgForOf, NgIf} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
@@ -69,6 +69,7 @@ export const MY_FORMATS = {
     ReactiveFormsModule,
     DatePipe,
     MatProgressSpinner,
+    DecimalPipe,
   ],
   providers: [provideMomentDateAdapter(MY_FORMATS)],
   templateUrl: './home.component.html',
@@ -179,9 +180,10 @@ export class HomeComponent implements OnInit {
 
   getWeeklyStatistics() {
     this.loadingTrainings = true;
-    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!.getFullYear(), this.selectedDate!.getMonth(), this.loggedInUserId).subscribe({
+    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!.getFullYear(), this.selectedDate!.getMonth() + 1, this.loggedInUserId).subscribe({
       next: value => {
         this.weeklyStatistics = value;
+        console.log(value);
         this.trainingsDataSource.data = this.trainings.filter(t =>
           t.month === this.selectedDate!.getMonth() + 1 &&
           t.year === this.selectedDate!.getFullYear())
