@@ -17,11 +17,11 @@ export class TrainingsService {
     return this.httpClient.get<TrainingDTO[]>(`${this.baseUrl}/${userId}`);
   }
 
-  getTrainingStatisticsForUserForMonthAndYear(date: Date, userId: number): Observable<WeeklyTrainingStatisticsDTO[]> {
-    return this.httpClient.get<WeeklyTrainingStatisticsDTO[]>(`${this.baseUrl}/${userId}/statistics/${date}/}`);
+  getTrainingStatisticsForUserForMonthAndYear(year: number, month: number, userId: number): Observable<WeeklyTrainingStatisticsDTO[]> {
+    return this.httpClient.get<WeeklyTrainingStatisticsDTO[]>(`${this.baseUrl}/${userId}/statistics/${year}/${month}`);
   }
 
-  documentTrainingForUser(createTrainingDTO: CreateTrainingDTO, userId: number): Observable<TrainingDTO> {
-    return this.httpClient.post<TrainingDTO>(`${this.baseUrl}/${userId}`, createTrainingDTO);
+  documentTrainingForUser(createTrainingDTO: CreateTrainingDTO): Observable<TrainingDTO> {
+    return this.httpClient.post<TrainingDTO>(`${this.baseUrl}`, createTrainingDTO);
   }
 }

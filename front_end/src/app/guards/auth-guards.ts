@@ -5,7 +5,7 @@ import {UsersService} from '../services/users/users.service';
 export const homeAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
-  if (localStorage.getItem('userId') !== null) {
+  if (localStorage.getItem('gymMemberId') !== null) {
     return true;
   } else {
     router.navigate(['']);
@@ -16,7 +16,7 @@ export const homeAuthGuard: CanActivateFn = (route, state) => {
 export const loginAuthGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
-  if (localStorage.getItem('userId') === null) {
+  if (localStorage.getItem('gymMemberId') === null) {
     return true;
   } else {
     router.navigate(['home']);

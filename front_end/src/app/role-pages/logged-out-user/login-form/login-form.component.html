@@ -7,6 +7,6 @@
     <input formControlName="password" matInput type="password" placeholder="Password...">
   </mat-form-field>
 
-  <button type="submit" class="yellow-button login-button">Login</button>
+  <button [disabled]="!loginForm.valid" type="submit" class="yellow-button login-button">Login</button>
 </form>
 

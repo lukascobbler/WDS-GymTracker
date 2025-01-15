@@ -1,4 +1,7 @@
-<form class="form" (ngSubmit)="closeDialog()" [formGroup]="trainingFormGroup">
+<div *ngIf="loadingTrainingTypes" class="form">
+  <mat-spinner></mat-spinner>
+</div>
+<form *ngIf="!loadingTrainingTypes" class="form" (ngSubmit)="closeDialog()" [formGroup]="trainingFormGroup">
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
     <input readonly [max]="today" formControlName="trainingDate" placeholder="Training date..." matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -28,9 +31,10 @@
   </div>
 
   <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
-    <mat-select placeholder="Training type...">
-      <mat-option [value]="Gender.Female">Female</mat-option>
-      <mat-option [value]="Gender.Male">Male</mat-option>
+    <mat-select formControlName="trainingType" placeholder="Training type...">
+      <mat-option *ngFor="let trainingType of trainingTypes" [value]="trainingType.trainingTypeId">
+        {{ trainingType.trainingTypeName }}
+      </mat-option>
     </mat-select>
   </mat-form-field>
 

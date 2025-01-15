@@ -39,52 +39,52 @@
       <ng-container matColumnDef="date">
         <mat-header-cell *matHeaderCellDef> Training Date </mat-header-cell>
         <mat-cell *matCellDef="let training">
-          {{ training.trainingDate | date }}
+          {{ createDate(training.year, training.month - 1, training.day) | date }}
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="type">
         <mat-header-cell *matHeaderCellDef> Training Type </mat-header-cell>
-        <mat-cell *matCellDef="let training" class="type-description-cell">
+        <mat-cell *matCellDef="let training">
           {{ training.trainingTypeName }}
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="difficulty">
         <mat-header-cell *matHeaderCellDef> Difficulty </mat-header-cell>
-        <mat-cell *matCellDef="let training" class="type-description-cell">
+        <mat-cell *matCellDef="let training">
           {{ training.trainingDifficulty }}
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="tiredness">
         <mat-header-cell *matHeaderCellDef> Tiredness </mat-header-cell>
-        <mat-cell *matCellDef="let training" class="type-description-cell">
+        <mat-cell *matCellDef="let training">
           {{ training.tiredness }}
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="duration">
         <mat-header-cell *matHeaderCellDef> Duration </mat-header-cell>
-        <mat-cell *matCellDef="let training" class="type-description-cell">
+        <mat-cell *matCellDef="let training">
           {{ training.duration }}min.
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="calories burned">
         <mat-header-cell *matHeaderCellDef> Calories burned </mat-header-cell>
-        <mat-cell *matCellDef="let training" class="type-description-cell">
+        <mat-cell *matCellDef="let training">
           {{ training.caloriesBurned }}kcal
         </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="additional notes">
         <mat-header-cell *matHeaderCellDef> Additional notes </mat-header-cell>
-        <mat-cell *matCellDef="let training; let i = index;" class="type-description-cell">
-          <p *ngIf="training.notes !== null" class="additional-notes" [ngClass]="{'expanded': expandedRow === i}">{{ training.notes }}</p>
-          <p *ngIf="training.notes === null">-</p>
-          <button *ngIf="expandedRow !== i && training.notes !== null" class="additional-notes-button" (click)="toggleExpansion(i)"><mat-icon>unfold_more</mat-icon></button>
-          <button *ngIf="expandedRow === i && training.notes !== null" class="additional-notes-button" (click)="toggleExpansion(i)"><mat-icon>unfold_less</mat-icon></button>
+        <mat-cell *matCellDef="let training; let i = index;" class="notes-cell">
+          <p *ngIf="training.notes !== ''" class="additional-notes" [ngClass]="{'expanded': expandedRow === i}">{{ training.notes }}</p>
+          <p *ngIf="training.notes === ''">-</p>
+          <button *ngIf="expandedRow !== i && training.notes !== ''" class="additional-notes-button" (click)="toggleExpansion(i)"><mat-icon>unfold_more</mat-icon></button>
+          <button *ngIf="expandedRow === i && training.notes !== ''" class="additional-notes-button" (click)="toggleExpansion(i)"><mat-icon>unfold_less</mat-icon></button>
         </mat-cell>
       </ng-container>
 

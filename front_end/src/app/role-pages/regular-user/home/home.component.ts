@@ -1,13 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {MAT_FORM_FIELD, MatFormField, MatFormFieldModule, MatHint, MatLabel} from '@angular/material/form-field';
-import {MatInput, MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 import {
   MatDatepicker,
-  MatDatepickerInput,
   MatDatepickerModule,
-  MatDatepickerToggle
 } from '@angular/material/datepicker';
-import {MAT_RIPPLE_GLOBAL_OPTIONS, MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule} from '@angular/material/core';
 import {
   MatCell,
   MatCellDef,
@@ -26,7 +24,6 @@ import _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
 import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
 import {FormControl, ReactiveFormsModule} from '@angular/forms';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {Router} from '@angular/router';
 import {TrainingsService} from '../../../services/trainings/trainings.service';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
@@ -112,10 +109,11 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loggedInUserId = Number(localStorage.getItem('userId'));
+    this.loggedInUserId = Number(localStorage.getItem('gymMemberId'));
     this.trainingService.getAllTrainingsForUser(this.loggedInUserId).subscribe({
       next: value => {
         this.trainings = value;
+        console.log(value)
         this.trainingsDataSource.data = value;
         this.loadingTrainings = false;
       },
@@ -132,14 +130,22 @@ export class HomeComponent implements OnInit {
 
     while (low < high) {
       const mid = Math.floor((low + high) / 2);
-      if (arr[mid].trainingDate < value.trainingDate) {
+      let comparatorDate = new Date(arr[mid].year, arr[mid].month, arr[mid].day);
+      let newDate = new Date(value.year, value.month, value.day);
+      if (comparatorDate > newDate) {
         low = mid + 1;
       } else {
         high = mid;
       }
     }
 
+    console.log(low)
+
     return low;
+  }
+
+  createDate(year: number, month: number, day: number) {
+    return new Date(year, month, day);
   }
 
   createNewTraining() {
@@ -151,7 +157,7 @@ export class HomeComponent implements OnInit {
       next: newTraining => {
         if (newTraining !== null && newTraining !== undefined) {
           this.loadingTrainings = true;
-          this.trainingService.documentTrainingForUser(newTraining, this.loggedInUserId).subscribe({
+          this.trainingService.documentTrainingForUser(newTraining).subscribe({
             next: documentedTraining => {
               const index = this.binarySearch(this.trainings, documentedTraining);
               this.trainings.splice(index, 0, documentedTraining);
@@ -160,7 +166,7 @@ export class HomeComponent implements OnInit {
               } else {
                 // todo what if the weekly report mode is turned on
               }
-              this.loadingTrainings = true;
+              this.loadingTrainings = false;
             },
             error: err => {
               // todo
@@ -173,12 +179,12 @@ export class HomeComponent implements OnInit {
 
   getWeeklyStatistics() {
     this.loadingTrainings = true;
-    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!, this.loggedInUserId).subscribe({
+    this.trainingService.getTrainingStatisticsForUserForMonthAndYear(this.selectedDate!.getFullYear(), this.selectedDate!.getMonth(), this.loggedInUserId).subscribe({
       next: value => {
         this.weeklyStatistics = value;
         this.trainingsDataSource.data = this.trainings.filter(t =>
-          t.trainingDate.getMonth() === this.selectedDate!.getMonth() &&
-          t.trainingDate.getFullYear() === this.selectedDate!.getFullYear())
+          t.month === this.selectedDate!.getMonth() + 1 &&
+          t.year === this.selectedDate!.getFullYear())
         this.loadingTrainings = false;
       },
       error: err => {
@@ -188,7 +194,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('userId');
+    localStorage.removeItem('gymMemberId');
     this.router.navigate(['']);
   }
 
@@ -197,4 +203,6 @@ export class HomeComponent implements OnInit {
   toggleExpansion(index: number) {
     this.expandedRow = this.expandedRow === index ? null : index;
   }
+
+  protected readonly Date = Date;
 }

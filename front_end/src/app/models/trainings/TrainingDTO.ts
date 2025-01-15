@@ -5,5 +5,7 @@ export interface TrainingDTO {
   tiredness: number,
   notes?: string,
   trainingTypeName: string,
-  trainingDate: Date,
+  year: number,
+  month: number,
+  day: number
 }

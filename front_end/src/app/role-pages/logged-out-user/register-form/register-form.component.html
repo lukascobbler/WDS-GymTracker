@@ -26,6 +26,6 @@
     </mat-select>
   </mat-form-field>
 
-  <button type="submit" class="yellow-button register-button">Register</button>
+  <button [disabled]="!registrationForm.valid" type="submit" class="yellow-button register-button">Register</button>
 </form>
 

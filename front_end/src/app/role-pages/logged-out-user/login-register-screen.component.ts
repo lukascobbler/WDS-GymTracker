@@ -28,7 +28,7 @@ export class LoginRegisterScreenComponent {
   login(loginRequestDTO: LoginRequestDTO) {
     this.userService.login(loginRequestDTO).subscribe({
       next: value => {
-        localStorage.setItem('userId', String(value.id));
+        localStorage.setItem('gymMemberId', String(value.gymMemberId));
         this.router.navigate(['home']);
       },
       error: err => {
@@ -40,7 +40,7 @@ export class LoginRegisterScreenComponent {
   register(registrationRequestDTO: RegistrationRequestDTO) {
     this.userService.register(registrationRequestDTO).subscribe({
       next: value => {
-        localStorage.setItem('userId', String(value.id));
+        localStorage.setItem('gymMemberId', String(value.gymMemberId));
         this.router.navigate(['home']);
       },
       error: err => {
