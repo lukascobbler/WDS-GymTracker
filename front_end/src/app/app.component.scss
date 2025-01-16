@@ -9,10 +9,34 @@
   }
 }
 
-::ng-deep .gray-button {
-  background-color: #383838;
+::ng-deep .toast-success {
+  background-color: #101010 !important;
+  border: 2px solid green !important;
+  border-radius: 10px !important;
+  color: white !important;
+  margin-right: 0.5rem !important;
+}
 
-  &:hover {
-    background-color: lighten(#383838, 5.5%);
-  }
+::ng-deep .toast-success .toast-title {
+  font-weight: bold !important;
+}
+
+::ng-deep .toast-success .toast-message {
+  font-size: 16px !important;
+}
+
+::ng-deep .toast-error {
+  background-color: #101010 !important;
+  border: 2px solid red !important;
+  border-radius: 10px !important;
+  color: white !important;
+  margin-right: 0.5rem !important;
+}
+
+::ng-deep .toast-error .toast-title {
+  font-weight: bold !important;
+}
+
+::ng-deep .toast-error .toast-message {
+  font-size: 16px !important;
 }

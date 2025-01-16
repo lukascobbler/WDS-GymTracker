@@ -7,7 +7,7 @@ public class DbConnectionStringBuilder
     public static string Build(string schema)
     {
         var server = "localhost";
-        var port = "5432";
+        var port = "5433";
         var database = "gymTracker";
         var user = "postgres";
         var password = "postgres";

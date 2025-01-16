@@ -42,3 +42,17 @@ Key components:
 ## SQL Script for Inserting Entities (Test Database)
 
 To quickly set up a test database, you can use the provided SQL script (`back_end/GymTracker.API/DevelopmentSQL/insert-dev-db.sql`) to insert sample data for `Users`, `GymMembers`, `TrainingTypes`, and `Trainings`.
+
+## Quick setup with Docker Compose
+
+Run docker compose to set up the Angular front end and the PostgreSQL database.
+
+```docker compose -f docker-compose.yml up -d --build```
+
+Apply database migrations in the back end projects.
+
+```dotnet ef database update --project GymTracker.UserManagement.Infrastructure/GymTracker.UserManagement.Infrastructure.csproj --startup-project GymTracker.API/GymTracker.API.csproj --context GymTracker.UserManagement.Infrastructure.Database.UsersContext --configuration Debug 20250115013147_Initial --connection Host=localhost;Port=5433;Username=postgres;Password=postgres;Database=gymTracker;```
+
+```dotnet ef database update --project GymTracker.TrainingManagement.Infrastructure/GymTracker.TrainingManagement.Infrastructure.csproj --startup-project GymTracker.API/GymTracker.API.csproj --context GymTracker.TrainingManagement.Infrastructure.Database.TrainingContext --configuration Debug 20250115012242_Initial --connection Host=localhost;Port=5433;Username=postgres;Password=postgres;Database=gymTracker;```
+
+Run the ASP.NET backend manually.
