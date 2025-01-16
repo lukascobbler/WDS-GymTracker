@@ -29,6 +29,7 @@ import {TrainingsService} from '../../../services/trainings/trainings.service';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
 import {CreateTrainingDTO} from '../../../models/trainings/CreateTrainingDTO';
 import {WeeklyTrainingStatisticsDTO} from '../../../models/trainings/WeeklyTrainingStatisticsDTO';
+import {ToastrService} from 'ngx-toastr';
 
 const moment = _rollupMoment || _moment;
 
@@ -89,7 +90,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
               private router: Router,
-              private trainingService: TrainingsService) {
+              private trainingService: TrainingsService,
+              private toastr: ToastrService) {
   }
 
   resetMonthAndYear() {
@@ -119,7 +121,7 @@ export class HomeComponent implements OnInit {
         this.loadingTrainings = false;
       },
       error: err => {
-        // todo
+        this.toastr.error("Error fetching trainings for user", "Fetch error");
       }
     });
 
@@ -165,12 +167,12 @@ export class HomeComponent implements OnInit {
               if (this.selectedDate === null) {
                 this.trainingsDataSource.data = this.trainings;
               } else {
-                // todo what if the weekly report mode is turned on
+                this.resetMonthAndYear();
               }
               this.loadingTrainings = false;
             },
             error: err => {
-              // todo
+              this.toastr.error("Error documenting training", "Document training error");
             }
           })
         }
@@ -190,7 +192,7 @@ export class HomeComponent implements OnInit {
         this.loadingTrainings = false;
       },
       error: err => {
-          //todo
+        this.toastr.error("Error fetching weekly statistics for user", "Fetch error");
       }
     })
   }

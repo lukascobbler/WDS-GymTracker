@@ -17,6 +17,7 @@ import {TrainingTypeService} from '../../../services/training-types/training-typ
 import {TrainingTypeDTO} from '../../../models/trainings/TrainingTypeDTO';
 import {NgForOf, NgIf} from '@angular/common';
 import {MatProgressSpinner} from '@angular/material/progress-spinner';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-insert-training',
@@ -49,7 +50,8 @@ export class InsertTrainingComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<InsertTrainingComponent, CreateTrainingDTO | null>,
               private formBuilder: FormBuilder,
-              private trainingTypeService: TrainingTypeService) {
+              private trainingTypeService: TrainingTypeService,
+              private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -69,7 +71,7 @@ export class InsertTrainingComponent implements OnInit {
         });
       },
       error: err => {
-        // todo
+        this.toastr.error("Error fetching training types", "Fetch error");
       }
     })
   }

@@ -6,6 +6,7 @@ import {UsersService} from '../../services/users/users.service';
 import {LoginRequestDTO} from '../../models/users/LoginRequestDTO';
 import {RegistrationRequestDTO} from '../../models/users/RegistrationRequestDTO';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-register-screen',
@@ -22,7 +23,8 @@ export class LoginRegisterScreenComponent {
   protected isLogin: boolean = true;
 
   constructor(private userService: UsersService,
-              private router: Router) {
+              private router: Router,
+              private toastr: ToastrService) {
   }
 
   login(loginRequestDTO: LoginRequestDTO) {
@@ -32,7 +34,7 @@ export class LoginRegisterScreenComponent {
         this.router.navigate(['home']);
       },
       error: err => {
-
+        this.toastr.error("Wrong credentials", "Login failure");
       }
     })
   }
@@ -44,7 +46,7 @@ export class LoginRegisterScreenComponent {
         this.router.navigate(['home']);
       },
       error: err => {
-
+        this.toastr.error("Email already in use", "Registration failure");
       }
     })
   }
