@@ -41,7 +41,8 @@ Key components:
 
 ## SQL Script for Inserting Entities (Test Database)
 
-To quickly set up a test database, you can use the provided SQL script (`back_end/GymTracker.API/DevelopmentSQL/insert-dev-db.sql`) to insert sample data for `Users`, `GymMembers`, `TrainingTypes`, and `Trainings`.
+To quickly set up a test database, you can use the provided SQL script (`back_end/GymTracker.API/DevelopmentSQL/insert-dev-db.sql`) to insert sample data for `Users`, `GymMembers`, `TrainingType`, and `Trainings`.
+Running the development database script is required because adding `TrainingType` entities is not supported, but `TrainingType` entities are needed for the complete feature set. 
 
 ## Quick setup with Docker Compose
 
