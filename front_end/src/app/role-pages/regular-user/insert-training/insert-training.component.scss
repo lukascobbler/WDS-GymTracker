@@ -3,6 +3,8 @@
   flex-direction: column;
   background-color: white;
   padding: 25px;
+  overflow-y: scroll;
+  max-height: 90vh;
 }
 
 .register-button {
