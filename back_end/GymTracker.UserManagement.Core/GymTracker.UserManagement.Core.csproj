@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GymTracker.BuildingBlocks.Core\GymTracker.BuildingBlocks.Core.csproj" />
+      <ProjectReference Include="..\GymTracker.TrainingManagement.Infrastructure\GymTracker.TrainingManagement.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Features\User\Commands\" />
+      <Folder Include="Features\User\Queries\" />
+    </ItemGroup>
+
+</Project>

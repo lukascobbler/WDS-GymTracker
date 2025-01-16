@@ -1,0 +1,31 @@
+<form class="form" [formGroup]="registrationForm" (submit)="register()">
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="email" matInput type="email" placeholder="Email...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="password" matInput type="password" placeholder="Password...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="repeatPassword" matInput type="password" placeholder="Repeat password...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="name" matInput type="text" placeholder="Name...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="surname" matInput type="text" placeholder="Surname...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="">
+    <mat-select formControlName="gender" placeholder="Gender...">
+      <mat-option [value]="Gender.Female">Female</mat-option>
+      <mat-option [value]="Gender.Male">Male</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button [disabled]="!registrationForm.valid" type="submit" class="yellow-button register-button">Register</button>
+</form>
+

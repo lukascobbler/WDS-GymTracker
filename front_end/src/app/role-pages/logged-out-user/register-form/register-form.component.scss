@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-button {
+  font-size: large;
+}
+
+input {
+  color: #000000 !important;
+}
+
+mat-select {
+  opacity: 1 !important;
+  color: #000000 !important;
+}
+
+::ng-deep {
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mdc-text-field {
+    border: 1px solid #aaaaaa;
+    border-radius: 4px !important;
+  }
+}

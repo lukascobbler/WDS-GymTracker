@@ -1,0 +1,48 @@
+<div *ngIf="loadingTrainingTypes" class="form">
+  <mat-spinner></mat-spinner>
+</div>
+<form *ngIf="!loadingTrainingTypes" class="form" (ngSubmit)="closeDialog()" [formGroup]="trainingFormGroup">
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input readonly [max]="today" formControlName="trainingDate" placeholder="Training date..." matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input formControlName="duration" matInput (input)="validateNumber($event)" type="number" placeholder="Duration (minutes)...">
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <input formControlName="caloriesBurned" matInput (input)="validateNumber($event)" type="number" placeholder="Calories burned (kcal)...">
+  </mat-form-field>
+
+  <div class="input-field slider">
+    <mat-label>Training difficulty ({{ difficultyPicker.value }})</mat-label>
+    <mat-slider min="1" max="10" step="1">
+      <input #difficultyPicker formControlName="trainingDifficulty" matSliderThumb>
+    </mat-slider>
+  </div>
+
+  <div class="input-field slider">
+    <mat-label>Tiredness ({{ tirednessPicker.value }})</mat-label>
+    <mat-slider min="1" max="10" step="1">
+      <input #tirednessPicker formControlName="tiredness" matSliderThumb>
+    </mat-slider>
+  </div>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <mat-select formControlName="trainingType" placeholder="Training type...">
+      <mat-option *ngFor="let trainingType of trainingTypes" [value]="trainingType.trainingTypeId">
+        {{ trainingType.trainingTypeName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field subscriptSizing="dynamic" appearance="outline" class="input-field">
+    <textarea formControlName="notes" rows="5" matInput type="text" placeholder="Additional notes..."></textarea>
+  </mat-form-field>
+
+  <button [disabled]="!trainingFormGroup.valid" type="submit" class="yellow-button insert-training-button">Document training</button>
+</form>
+
+

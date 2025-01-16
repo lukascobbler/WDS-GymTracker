@@ -1,0 +1,18 @@
+::ng-deep .yellow-button {
+  background-color: #ffdf58;
+  border: 1px solid #5d5d5d;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten(#ffdf58, 15%);
+  }
+}
+
+::ng-deep .gray-button {
+  background-color: #383838;
+
+  &:hover {
+    background-color: lighten(#383838, 5.5%);
+  }
+}

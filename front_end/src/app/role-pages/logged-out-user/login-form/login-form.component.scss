@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+}
+
+.login-button {
+  font-size: large;
+}
+
+input {
+  color: #000000 !important;
+}
+
+::ng-deep {
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mdc-text-field {
+    border: 1px solid #aaaaaa;
+    border-radius: 4px !important;
+  }
+}

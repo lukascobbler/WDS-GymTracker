@@ -1,0 +1,174 @@
+.background {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(../../../../../public/assets/images/background.jpg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.statistics-holder {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 3px solid #aaaaaa;
+  min-width: 95%;
+  min-height: 90%;
+  overflow: hidden;
+  max-height: 90%;
+}
+
+mat-table {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  overflow-y: auto; // todo
+}
+
+mat-header-row {
+  color: black;
+}
+
+mat-row {
+  color: black;
+}
+
+.training-statistics {
+  padding: 10px 25px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.week-label {
+  font-size: larger;
+}
+
+.data {
+  display: flex;
+  gap: 20px;
+}
+
+.button-holder {
+  display: flex;
+  gap: 15px;
+  height: 50%;
+}
+
+.new-training-button {
+  width: 200px;
+  height: 75px;
+  font-size: large;
+}
+
+.date {
+  width: 250px;
+  height: 97px;
+  margin-right: 25px;
+}
+
+.additional-notes {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: inline-block;
+}
+
+.additional-notes.expanded {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.additional-notes-button {
+  all: unset;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.date-picker {
+  min-height: 100%;
+  width: 300px;
+  padding-left: 0 !important;
+}
+
+::ng-deep .mat-datepicker-content {
+  border: 1px solid black;
+}
+
+::ng-deep {
+  .mdc-line-ripple {
+    display: none;
+  }
+
+  .mdc-text-field {
+    background-color: #ffffff !important;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px !important;
+  }
+}
+
+input {
+  color: black !important;
+}
+
+.reset-button {
+  margin: 0;
+  cursor: pointer;
+}
+
+.title {
+  font-size: xxx-large;
+  margin: 0;
+  padding: 0;
+}
+
+.selected-month-title {
+  text-align: center;
+  font-size: x-large;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.logout-icon {
+  cursor: pointer;
+  margin: 15px 0 0 15px;
+}
+
+.notes-cell {
+  display: flex;
+  justify-content: space-between;
+}

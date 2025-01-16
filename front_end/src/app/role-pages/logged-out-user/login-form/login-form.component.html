@@ -1,0 +1,12 @@
+<form class="form" [formGroup]="loginForm" (submit)="login()">
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="email" matInput type="email" placeholder="Email...">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="input-field">
+    <input formControlName="password" matInput type="password" placeholder="Password...">
+  </mat-form-field>
+
+  <button [disabled]="!loginForm.valid" type="submit" class="yellow-button login-button">Login</button>
+</form>
+

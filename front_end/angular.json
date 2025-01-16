@@ -32,9 +32,17 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/cyan-orange.css",
+              "src/styles.scss",
+              "src/colors.scss",
+              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -91,9 +99,17 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/cyan-orange.css",
+              "src/styles.scss",
+              "src/colors.scss",
+              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "node_modules"
+              ]
+            }
           }
         }
       }
